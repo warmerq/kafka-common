@@ -1,4 +1,4 @@
 kafka-common
 ============
 
-Some convenient codes for working with kafka
+Some convenient codes for working with kafka in Scala
