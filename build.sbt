@@ -1,6 +1,6 @@
-name := "kafka_common"
+name := "Kafka Common"
 
-version := "0.0.1-SNAPSHOT"
+version := "0.0.1"
 
 organization := "com.github.warmerq"  
 
@@ -19,8 +19,10 @@ libraryDependencies ++= {
     "org.specs2" %% "specs2-scalaz-core" % "6.0.1" % "test"
   )
 }
-  
-// publishTo <<= (version) { version: String =>
+
+publishTo := Some(Resolver.file("file", new File("/Users/mengwu/.m2/repository")))
+
+  // publishTo <<= (version) { version: String =>
 //   val repo = "http://host:port/nexus/content/repositories/" // some repository
 //   if (version.trim.endsWith("SNAPSHOT")) Some("Snapshots" at repo + "snapshots/")
 //   else Some("releases" at repo + "releases/")
