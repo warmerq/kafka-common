@@ -1,6 +1,6 @@
 name := "Kafka Common"
 
-version := "0.0.1"
+version := "0.0.1-SNAPSHOT"
 
 organization := "com.github.warmerq"  
 
@@ -20,10 +20,14 @@ libraryDependencies ++= {
   )
 }
 
-publishTo := Some(Resolver.file("file", new File("/Users/mengwu/.m2/repository")))
+// publishTo := Some(Resolver.file("file", new File("/Users/mengwu/.m2/repository")))
 
-  // publishTo <<= (version) { version: String =>
-//   val repo = "http://host:port/nexus/content/repositories/" // some repository
-//   if (version.trim.endsWith("SNAPSHOT")) Some("Snapshots" at repo + "snapshots/")
-//   else Some("releases" at repo + "releases/")
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
+publishTo <<= (version) { version: String =>
+  val repo = "http://nexus.yidian-inc.com/content/repositories/" // some repository
+  if (version.trim.endsWith("SNAPSHOT"))
+    Some("Snapshots" at repo + "snapshots/")
+  else
+    Some("releases" at repo + "releases/")
+}

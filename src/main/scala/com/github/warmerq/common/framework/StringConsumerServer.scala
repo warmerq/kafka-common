@@ -100,6 +100,7 @@ trait StringConsumerServer extends TwitterServer with Settings {
     )
 
     onExit {
+      consumerConnector.shutdown
       log.info("Server Exit...")
     }
 
